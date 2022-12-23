@@ -32,11 +32,12 @@ if '--' in sys.argv:
     lamp2.location.z = args.z2
 
 
-    bpy.data.images['img'].filepath = args.img
-    bpy.data.images['norm'].filepath = args.normal
-    bpy.data.images['depth'].filepath = args.depth
+    bpy.data.images['img'].filepath = bpy.path.abspath(f"//{args.img}")
+    bpy.data.images['norm'].filepath = bpy.path.abspath(f"//{args.normal}")
+    bpy.data.images['depth'].filepath = bpy.path.abspath(f"//{args.depth}")
 
 
     camera = bpy.data.objects['Camera']
-    bpy.context.scene.render.filepath = 'result.png'
+
+    bpy.context.scene.render.filepath = bpy.path.abspath("//result.png")
     bpy.ops.render.render(write_still = True)

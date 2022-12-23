@@ -18,7 +18,7 @@ def send_photo_step(message):
             new_file.write(downloaded_file)
 
         msg = bot.reply_to(message, """\
-        Теперь задай позиции переднего и заднего света 
+        Теперь выбери позиции света (1 - задний, 2 - правый, 3 - левый, 4 - передний)
         """)
         bot.register_next_step_handler(msg, set_params_step)
     except Exception as e:
